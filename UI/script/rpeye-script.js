@@ -6,15 +6,7 @@ $(document).ready(function(){
 	$("input").focus();
 
 	/*filter block rendering*/
-	var res_del_btn = "<input id=\"res_del\" class=\"btn\" type=\"button\" value=\"-\">";
-	var res_add_btn="<input id=\"res_add\" class=\"btn\" type=\"button\" value=\"+\">";
-	var res_num = "<span id=\"res_value\">7</span>";
-	var res_max = "<input id=\"res_max\" class=\"btn\" type=\"button\" value=\"Max\">";
-	var res_min = "<input id=\"res_min\" class=\"btn\" type=\"button\" value=\"Min\">";
-	var res_default = "<input id=\"res_default\" class=\"btn\" type=\"button\" value=\"Default\">";
-	var res_row_1 = "<div class=\"row\">"+res_min+res_default+res_max+"</div>";
-	var res_row_2 = "<div class=\"row\">"+res_del_btn+res_num+res_add_btn+"</div>";
-	var filter = "<div id=\"filter\"> <p>number of result per page</p>"+res_row_1+res_row_2+"</div>";
+	var filter = $( "#filter" ).detach();
 	var content = null;
 	/*based swap filter and content*/
     $("#filter_btn").click(function(){
@@ -58,16 +50,17 @@ $(document).ready(function(){
    		 }
 	});
 
+	//change result per page to max
 	$(document).on( "click","#res_max",function() {
    		 console.log("max clicked");
    		 $("#res_value").text(max_result);
 	});
-
+	//change result per page to 7
 	$(document).on( "click","#res_default",function() {
    		 console.log("min clicked");
    		 $("#res_value").text(default_result);
 	});
-
+	//chage result per page to min
 	$(document).on( "click","#res_min",function() {
    		 console.log("min clicked");
    		 $("#res_value").text(min_result);
