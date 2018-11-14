@@ -1,12 +1,14 @@
 const max_result = 20;
 const min_result = 1;
 const default_result = 7;
+//detach filter content before page is ready to serve
+
+var filter = $( "#filter" ).detach();
 $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
 
 	/*filter block rendering*/
-	var filter = $( "#filter" ).detach();
 	var content = null;
 	/*based swap filter and content*/
     $("#filter_btn").click(function(){

@@ -1,0 +1,13 @@
+<p>A collection of useful phrases in Pig Latin, a constructed language game where words in English are altered according to a simple set of rules. Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an ay, or if a word begins with a vowel you just add way to the end. For example, pig becomes igpay, banana becomes ananabay, and aadvark becomes aadvarkway. There are slightly different versions as well.
+
+          The idea is to conceal the meaning of the words. It has nothing to do with Latin but does sound strange and foreign, like Latin and other languages do to English speakers.
+
+          Click on any of the (non-English) phrases that are links (blue) to hear them spoken. If you can provide recordings, corrections or additional translations, please contact me.
+
+          To see these phrases in many other languages click on the English versions. If you'd like to see these phrases in any combination of two languages, try the Phrase Finder.
+          The idea is to conceal the meaning of the words. It has nothing to do with Latin but does sound strange and foreign, like Latin and other languages do to English speakers.
+
+          Click on any of the (non-English) phrases that are links (blue) to hear them spoken. If you can provide recordings, corrections or additional translations, please contact me.
+
+          To see these phrases in many other languages click on the English versions. If you'd like to see these phrases in any combination of two languages, try the Phrase Finder.
+          </p>
