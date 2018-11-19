@@ -2,11 +2,24 @@ const max_result = 20;
 const min_result = 1;
 const default_result = 7;
 //detach filter content before page is ready to serve
-
 var filter = $( "#filter" ).detach();
 $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
+
+	$('#search_btn').click(function(){
+        var search = $('#query').val();
+        console.log(search);
+        /*$.post('../searchusers.php',{search: search},function(response){
+            $('#userSearchResultsTable').html(response);
+        });*/
+    })
+    $('#query').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+        	console.log("enter pressed");
+            $('#search_btn').click();//Trigger search button click event
+        }
+    });
 
 	/*filter block rendering*/
 	var content = null;
