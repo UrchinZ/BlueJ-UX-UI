@@ -24,9 +24,17 @@ APIManager.prototype.getDocument = function(docID) {
     // let request = new Request(this.rankingAddress, requestInit);
     // Not sure if this is correct. Working on this
     // fetch(request).then(function(response) {return respons.json()})
+    doc = {
+        docID: 1234,
+        url: 'test.com',
+        title: 'TEST',
+        headings: ['About', 'Academic'],
+        body: ['Test text for body here. LOL!', 'Pargraph 2 test text for body here.']
+    };
+    return doc;
 };
 
-APIManager.prototype.searchRequest = function(queryInfo, pageNum) {
+APIManager.prototype.searchRequest = function(queryInfo) {
     result1 = {
         url: 'test.com',
         title: 'test1',
@@ -44,9 +52,9 @@ APIManager.prototype.searchRequest = function(queryInfo, pageNum) {
 APIManager.prototype.sendQueryFeedback = function(docID) {
 };
 
-// let API = new APIManager();
+let API = new APIManager();
 
-console.log(123);
-console.log(max_result);
-console.log(min_result);
-console.log(default_result);
+// Get search result for a given query as parameter
+console.log(API.searchRequest(''));
+// Get a document object (as described in deliverable 1)
+console.log(API.getDocument(1));
