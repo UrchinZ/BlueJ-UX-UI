@@ -36,14 +36,14 @@ APIManager.prototype.getDocument = function(docID) {
 
 APIManager.prototype.searchRequest = function(queryInfo) {
     result1 = {
-        url: 'test.com',
-        title: 'test1',
-        snippet: 'This is a test page'
+        docID: 1,
+        keywords: ['keyword1', 'keyword2'],
+        rank = 0.2
     };
     result2 = {
-        url: 'test.com',
-        title: 'test2',
-        snippet: 'This is the second test page'
+        docID: 2,
+        keywords: ['keyword3', 'keyword4'],
+        rank = 0.8
     };
     result = [result1, result2];
     return result;
