@@ -2,7 +2,7 @@ const max_result = 20;
 const min_result = 1;
 const default_result = 7;
 //detach filter content before page is ready to serve
-var filter = $( "#filter" ).detach();
+var filter = $("#filter").detach();
 $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
@@ -10,6 +10,7 @@ $(document).ready(function(){
 	$('#search_btn').click(function(){
         var search = $('#query').val();
         console.log(search);
+        console.log(API.searchRequest(search));
         /*$.post('../searchusers.php',{search: search},function(response){
             $('#userSearchResultsTable').html(response);
         });*/
