@@ -13,6 +13,9 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     // };
     result = '';
     for (let i = 0; i < body.length; ++i) {
-        console.log();
+        console.log(body[i]);
     }
 };
+
+let Snippets = new SnippetsGenerator();
+Snippets.getSnippets(1, ['keyword1', 'keyword2']);

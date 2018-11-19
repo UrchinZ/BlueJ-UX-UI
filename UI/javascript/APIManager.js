@@ -55,6 +55,6 @@ APIManager.prototype.sendQueryFeedback = function(docID) {
 let API = new APIManager();
 
 // Get search result for a given query as parameter
-console.log(API.searchRequest(''));
+API.searchRequest('');
 // Get a document object (as described in deliverable 1)
-console.log(API.getDocument(1));
+API.getDocument(1);
