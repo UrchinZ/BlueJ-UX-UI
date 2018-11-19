@@ -38,12 +38,12 @@ APIManager.prototype.searchRequest = function(queryInfo) {
     result1 = {
         docID: 1,
         keywords: ['keyword1', 'keyword2'],
-        rank = 0.2
+        rank: 0.2
     };
     result2 = {
         docID: 2,
         keywords: ['keyword3', 'keyword4'],
-        rank = 0.8
+        rank: 0.8
     };
     result = [result1, result2];
     return result;
