@@ -19,6 +19,11 @@ footer {
   /*background-color: #f5f5f5;*/
 }
 
+#quick_access {
+  padding: 30px 10px 10px 20px;
+  margin: 0;
+}
+
 
 /* Custom page CSS
 -------------------------------------------------- */

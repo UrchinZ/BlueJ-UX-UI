@@ -10,10 +10,10 @@ $(document).ready(function(){
 	$('#search_btn').click(function(){
         var search = $('#query').val();
         console.log(search);
-        console.log(API.searchRequest(search));
-        /*$.post('../searchusers.php',{search: search},function(response){
-            $('#userSearchResultsTable').html(response);
-        });*/
+        if (search.length>1) //do nothing when query is empty
+        {
+          console.log(API.searchRequest(search));
+        };
     })
     $('#query').keypress(function(e){
         if(e.which == 13){//Enter key pressed
@@ -65,7 +65,6 @@ $(document).ready(function(){
    		 	console.log(value);
    		 }
 	});
-
 	//change result per page to max
 	$(document).on( "click","#res_max",function() {
    		 console.log("max clicked");
