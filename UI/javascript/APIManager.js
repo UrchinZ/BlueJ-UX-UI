@@ -1,60 +1,61 @@
-let APIManager = function(rankingAddress = '', indexingAddress = '') {
-    this.rankingAddress = rankingAddress;
-    this.indexingAddress = indexingAddress;
-};
+class APIManager{
+    constructor(rankingAddress = '', indexingAddress = '') {
+        this.rankingAddress = rankingAddress;
+        this.indexingAddress = indexingAddress;
+    }
 
-APIManager.prototype.setRankingAddress = function(address) {
-    this.rankingAddress = address;
-};
-
-APIManager.prototype.setIndexingAddress = function(address) {
-    this.indexingAddress = address;
-};
-
-APIManager.prototype.getDocument = function(docID) {
-    // let headerInit = {
-    //     Content-Type : 'application/json',
-    //     Accept-Charset : 'utf-8'
-    // };
-    // let header = new Headers(headerInit);
-    // let requestInit = {
-    //     method : 'GET',
-    //     headers : header
-    // };
-    // let request = new Request(this.rankingAddress, requestInit);
-    // Not sure if this is correct. Working on this
-    // fetch(request).then(function(response) {return respons.json()})
-    doc = {
-        docID: 1234,
-        url: 'test.com',
-        title: 'TEST',
-        headings: ['About', 'Academic'],
-        body: ['Test text for body here. LOL!', 'Pargraph 2 test text for body here.']
+    setRankingAddress(address) {
+        this.rankingAddress = address;
     };
-    return doc;
-};
 
-APIManager.prototype.searchRequest = function(queryInfo) {
-    result1 = {
-        docID: 1,
-        keywords: ['keyword1', 'keyword2'],
-        rank: 0.2
+    setIndexingAddress(address) {
+        this.indexingAddress = address;
     };
-    result2 = {
-        docID: 2,
-        keywords: ['keyword3', 'keyword4'],
-        rank: 0.8
+
+    getDocument(docID) {
+        /*<?php
+        $servername = this.indexingAddress;
+        $username = "querying";
+        $password = "querying";
+        $dbname = "index";
+        
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        $sql="Select * FROM "
+        ?>;*/
+
+         doc = {
+            docID: 1234,
+            url: 'test.com',
+            title: 'TEST',
+            headings: ['About', 'Academic'],
+            body: ['Test text for body here. LOL!', 'Pargraph 2 test text for body here.']
+        };
+        return doc;
     };
-    result = [result1, result2];
-    return result;
-};
 
-APIManager.prototype.sendQueryFeedback = function(docID) {
-};
+    searchRequest(queryInfo) {
+        const Http = new XMLHttpRequest();
+        const url=this.rankingAddress + queryInfo;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange=(e)=>{
+            //console.log(Http.responseText);
+            let obj = JSON.parse(Http.responseText);
+            //console.log(obj);
+            if(obj.pages.length<10){
+                updateResults(obj.pages, 0, obj.pages.length);
+            }
+            else{
+                updateResults(obj.pages, 0, 10);
+            }
+        }
+    };
 
-let API = new APIManager();
-
-// Get search result for a given query as parameter
-console.log(API.searchRequest(''));
-// Get a document object (as described in deliverable 1)
-console.log(API.getDocument(1));
+    sendQueryFeedback(docID) {
+    };
+}
