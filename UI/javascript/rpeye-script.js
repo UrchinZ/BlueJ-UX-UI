@@ -65,7 +65,6 @@ $(document).ready(function(){
    		 	console.log(value);
    		 }
 	});
-
 	//change result per page to max
 	$(document).on( "click","#res_max",function() {
    		 console.log("max clicked");
