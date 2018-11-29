@@ -1,7 +1,14 @@
 let SnippetsGenerator = function() {};
 
 SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
+    let checkKeyWords = function(keyWords, string) {
+        for (let i = 0; i < keyWords.length; ++i)
+            if (string === keyWords[i])
+                return true;
+    };
+    let snippet_number = 3;
     let half_length = 5;
+
     // <p> test test <b> keywords </b> </p>
     doc = API.getDocument(docID);
     body = doc.body;
@@ -11,10 +18,11 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     //     snippet: 'This is the second test page',
     //     body: [''] Last one and first one
     // };
-    result = '';
+    result = [];
+    let result_counter = 0;
     for (let i = 0; i < body.length; ++i) {
-        current_body = str.split(bodt[i], ' ');
-        console.log(current_body);
+        current_body = body[i].split(' ');
+        for (let j = 0; j < current_body.)
     }
 };
 
