@@ -1,7 +1,7 @@
 let SnippetsGenerator = function() {};
 
 SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
-    let checkKeyWords = function(keyWords, string) {
+   let checkKeyWords = function(keyWords, string) {
         for (let i = 0; i < keyWords.length; ++i)
             if (string === keyWords[i])
                 return true;
@@ -28,3 +28,12 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
 
 let Snippets = new SnippetsGenerator();
 Snippets.getSnippets(1, ['keyword1', 'keyword2']);
+
+let Snippet=function(header, url, body, snippet){
+    this.header=header;
+    this.url=url;
+    this.body=body;
+    this.snippet=snippet;
+
+    return this;
+}
