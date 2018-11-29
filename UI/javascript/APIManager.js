@@ -33,10 +33,15 @@ class APIManager{
             let obj = JSON.parse(Http.responseText);
             //console.log(obj);
             this.getDocument(obj.pages[0].document_id)
-            
+
         }
     };
 
     sendQueryFeedback(docID) {
     };
 }
+
+// Get search result for a given query as parameter
+API.searchRequest('');
+// Get a document object (as described in deliverable 1)
+API.getDocument(1);
