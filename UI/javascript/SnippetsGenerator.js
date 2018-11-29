@@ -1,7 +1,7 @@
 let SnippetsGenerator = function() {};
 
 SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
-    let length = 20;
+    let half_length = 5;
     // <p> test test <b> keywords </b> </p>
     doc = API.getDocument(docID);
     body = doc.body;
@@ -13,7 +13,8 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     // };
     result = '';
     for (let i = 0; i < body.length; ++i) {
-        console.log(body[i]);
+        current_body = str.split(bodt[i], ' ');
+        console.log(current_body);
     }
 };
 
