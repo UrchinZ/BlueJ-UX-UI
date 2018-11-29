@@ -23,6 +23,14 @@ footer {
   padding: 30px 10px 10px 20px;
 }
 
+.option{
+ padding: 30px 10px 10px 20px; 
+}
+
+.btn{
+  margin:10px;
+}
+
 
 /* Custom page CSS
 -------------------------------------------------- */

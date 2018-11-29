@@ -48,11 +48,11 @@ $(document).ready(function(){
 	/*In filter, change number of result displayed in the page*/
    $(document).on( "click","#res_add",function() {
    		 console.log("add clicked");
-   		 var value = parseInt($("#res_value").text())+1;
+   		 var value = parseInt($("#res_value").val())+1;
    		 if(value > max_result){ //need to change the maximum value
    		 	alert("reached maximum number");
    		 } else {
-   		 	$("#res_value").text(value);
+   		 	$("#res_value").val(value);
    		 	console.log(value);
    		 }
 	});
@@ -60,28 +60,28 @@ $(document).ready(function(){
    /*decrease number of result dipslayed in the page*/
 	$(document).on( "click","#res_del",function() {
    		 console.log("minus clicked");
-   		 var value = parseInt($("#res_value").text())-1;
+   		 var value = parseInt($("#res_value").val())-1;
    		 if(value < min_result){ //need to change the maximum value
    		 	alert("reached min number");
    		 } else {
-   		 	$("#res_value").text(value);
+   		 	$("#res_value").val(value);
    		 	console.log(value);
    		 }
 	});
 	//change result per page to max
 	$(document).on( "click","#res_max",function() {
    		 console.log("max clicked");
-   		 $("#res_value").text(max_result);
+   		 $("#res_value").val(max_result);
 	});
 	//change result per page to 7
 	$(document).on( "click","#res_default",function() {
    		 console.log("min clicked");
-   		 $("#res_value").text(default_result);
+   		 $("#res_value").val(default_result);
 	});
 	//chage result per page to min
 	$(document).on( "click","#res_min",function() {
    		 console.log("min clicked");
-   		 $("#res_value").text(min_result);
+   		 $("#res_value").val(min_result);
 	});
 
 });
