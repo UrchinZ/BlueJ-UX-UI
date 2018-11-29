@@ -13,7 +13,8 @@ $(document).ready(function(){
         console.log(search);
         if (search.length>1) //do nothing when query is empty
         {
-          console.log(API.searchRequest(search)); //search result retrieval
+          //expected return ranking and document ID
+          console.log(API.searchRequest(search)); 
         };
     })
     $('#query').keypress(function(e){
