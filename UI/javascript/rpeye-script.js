@@ -10,11 +10,11 @@ $(document).ready(function(){
   /*user query function*/
 	$('#search_btn').click(function(){
         var search = $('#query').val();
+         var api=new APIManager("http://green-x.cs.rpi.edu:5000/search?query=", "http://green-eth.cs.rpi.edu/querying");
         console.log(search);
         if (search.length>1) //do nothing when query is empty
         {
-          //expected return ranking and document ID
-          console.log(API.searchRequest(search)); 
+          console.log(api.searchRequest(search));
         };
     })
     $('#query').keypress(function(e){
