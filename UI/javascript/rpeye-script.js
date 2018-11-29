@@ -7,12 +7,13 @@ $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
 
+  /*user query function*/
 	$('#search_btn').click(function(){
         var search = $('#query').val();
         console.log(search);
         if (search.length>1) //do nothing when query is empty
         {
-          console.log(API.searchRequest(search));
+          console.log(API.searchRequest(search)); //search result retrieval
         };
     })
     $('#query').keypress(function(e){
@@ -55,6 +56,7 @@ $(document).ready(function(){
    		 }
 	});
 
+   /*decrease number of result dipslayed in the page*/
 	$(document).on( "click","#res_del",function() {
    		 console.log("minus clicked");
    		 var value = parseInt($("#res_value").text())-1;
