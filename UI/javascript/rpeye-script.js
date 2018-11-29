@@ -7,6 +7,7 @@ $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
 
+  /*user query function*/
 	$('#search_btn').click(function(){
         var search = $('#query').val();
          var api=new APIManager("http://green-x.cs.rpi.edu:5000/search?query=", "http://green-eth.cs.rpi.edu/querying");
@@ -56,6 +57,7 @@ $(document).ready(function(){
    		 }
 	});
 
+   /*decrease number of result dipslayed in the page*/
 	$(document).on( "click","#res_del",function() {
    		 console.log("minus clicked");
    		 var value = parseInt($("#res_value").text())-1;
