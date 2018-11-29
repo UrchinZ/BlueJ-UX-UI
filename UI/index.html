@@ -15,6 +15,7 @@
     <script type="text/javascript" src="./javascript/SnippetsGenerator.js"></script>
   </head>
   <body>
+    <!--Search Bar + Filter Btn-->
   	<nav class="navbar navbar-fixed-top navbar-expand-lg bg-danger">
   		<div class="container">
   			<div class="input-group md-5">
@@ -29,7 +30,10 @@
 			</div>
   		</div>
   	</nav>
+
+    <!--Content Section: landing page + user setting + result -->
     <div id="content" class="container">
+      <!-- user setting --> 
       <div id="filter" class="row align-items-center">
         <div>
           <p>number of result per page</p>
@@ -46,8 +50,10 @@
 
         </div>
       </div>
-    	<div id="quick_access" class="row">
-    		<div id="left_7" class="col-md-7 md-offset-1 col-sm-8">
+
+      <!--landing page + result page-->
+    	<div id="info" class="row">
+    		<div id="left_7" class="col-md-7 md-offset-1 col-sm-8"> <!--landing page information + results-->
             <span>Quick Access</span>
             <ul>
               <li><a href="https://yacs.cs.rpi.edu/">YACS: course scheduler for the RPI student</a></li>
@@ -62,11 +68,12 @@
               <li><a href="https://www.reddit.com/r/RPI/wiki/online_directory">Online Directory</a></li>
             </ul>
         </div>
-    		<div id="right_3" class="col-md-3 col-sm-4">
+    		<div id="right_3" class="col-md-3 col-sm-4"> <!--preview-->
     		</div>
     	</div>
     </div>
 
+    <!--Footer Section: help + report bug --> 
     <footer>
       <div id="page_number" class="d-flex justify-content-center">
       </div>
