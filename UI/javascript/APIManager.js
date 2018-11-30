@@ -21,6 +21,17 @@ class APIManager{
             body: ['Test text for body here. LOL!', 'Pargraph 2 test text for body here.']
         };
         return doc;
+
+        /*const Http = new XMLHttpRequest();
+        const url=this.indexingAddress + docID;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange=(e)=>{
+            //console.log(Http.responseText);
+            let obj = JSON.parse(Http.responseText);
+            //console.log(obj);
+            //put in a call to snippet method here
+        }*/
     };
 
     searchRequest(queryInfo) {
