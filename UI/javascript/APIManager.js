@@ -32,7 +32,7 @@ class APIManager{
             //console.log(Http.responseText);
             let obj = JSON.parse(Http.responseText);
             //console.log(obj);
-            this.getDocument(obj.pages[0].document_id)
+            updateUI(obj.pages, 0, 1);
 
         }
     };
@@ -42,6 +42,6 @@ class APIManager{
 }
 
 // Get search result for a given query as parameter
-API.searchRequest('');
+//API.searchRequest('');
 // Get a document object (as described in deliverable 1)
-API.getDocument(1);
+//API.getDocument(1);

@@ -85,3 +85,38 @@ $(document).ready(function(){
 	});
 
 });
+
+let updateUI=function(results, start, end){
+  var i;
+  //grab the element that we will put our result divs into
+  var container=document.getElementById("info");
+  container.innerHTML="";
+  //console.log(results[start]);
+    
+  for(i=start; i<end; i++){
+    //var snip=new Snippet("header", "google.com", "body", "snippet");
+    //add in code to use snippet generator
+    
+    var gen=new SnippetsGenerator();
+    var snip=gen.getSnippets(results[i].document_id, results[i].keywords);
+
+    var div=document.createElement("div");
+    div.class="resultDiv";
+
+    //create the link for the html
+    var url=document.createElement("a");
+    url.href=snip.url;
+    url.innerText=snip.header;
+
+    //console.log(url);
+
+    //append everything to the div element
+    div.appendChild(url);
+    div.appendChild(document.createElement("br"));  //new line element
+    div.appendChild(document.createTextNode(snip.snippet)); //add in the text snippet
+    //append the div to the container element
+    container.appendChild(div);
+
+    console.log(div);
+  }
+}
