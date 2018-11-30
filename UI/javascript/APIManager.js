@@ -34,7 +34,7 @@ class APIManager{
         }*/
     };
 
-    searchRequest(queryInfo) {
+    searchRequest(queryInfo, maxresults=10, startResult=0) {
         const Http = new XMLHttpRequest();
         const url=this.rankingAddress + queryInfo;
         Http.open("GET", url);
@@ -43,7 +43,7 @@ class APIManager{
             //console.log(Http.responseText);
             let obj = JSON.parse(Http.responseText);
             console.log(obj);
-            updateUI(obj.pages, 0, 1);
+            updateUI(obj.pages, startResult, startResult+maxresults);
 
         }
     };
