@@ -20,7 +20,7 @@ class APIManager{
             headings: ['About', 'Academic'],
             body: ['Test text for body here. LOL!', 'Pargraph 2 test text for body here.']
         };
-        //return doc;
+        return doc;
     };
 
     searchRequest(queryInfo) {

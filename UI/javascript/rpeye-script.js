@@ -86,6 +86,7 @@ $(document).ready(function(){
 
 });
 
+//function to be called whenever the UI needs to be updated with new search results
 let updateUI=function(results, start, end){
   var i;
   //grab the element that we will put our result divs into
