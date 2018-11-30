@@ -39,6 +39,7 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
             if (checkKeyWords(keyWords, current_body[j]))
                 indices.push(j);
         }
+        if (indices.length === 0) continue;
         let maxPivot = 0;
         let maxWeight = 0;
         for (let k = 0; k < indices.length; ++k) {
@@ -70,12 +71,3 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
 
 let Snippets = new SnippetsGenerator();
 Snippets.getSnippets(1, ['keyword5', 'keyword6']);
-
-let Snippet=function(header, url, body, snippet){
-    this.header=header;
-    this.url=url;
-    this.body=body;
-    this.snippet=snippet;
-
-    return this;
-}

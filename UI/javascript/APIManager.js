@@ -13,7 +13,7 @@ class APIManager{
     };
 
     getDocument(docID) {
-         doc = {
+        let doc = {
             docID: 1234,
             url: 'test.com',
             title: 'TEST',
