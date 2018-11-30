@@ -51,7 +51,7 @@ class APIManager{
     sendQueryFeedback(docID) {
     };
 }
-
+let API = new APIManager("http://green-x.cs.rpi.edu:5000/search?query=", "http://green-eth.cs.rpi.edu/querying");
 // Get search result for a given query as parameter
 //API.searchRequest('');
 // Get a document object (as described in deliverable 1)
