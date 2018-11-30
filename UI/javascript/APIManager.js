@@ -42,7 +42,7 @@ class APIManager{
         Http.onreadystatechange=(e)=>{
             //console.log(Http.responseText);
             let obj = JSON.parse(Http.responseText);
-            //console.log(obj);
+            console.log(obj);
             updateUI(obj.pages, 0, 1);
 
         }
