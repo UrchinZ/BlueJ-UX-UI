@@ -29,7 +29,7 @@ $(document).ready(function(){
     $("#filter_btn").click(function(){
   		//show filter content
   		if ( filter ) {
-  			$("#filter_btn").text("Save"); //change filter button text
+  			$("#filter_btn").text("SAVE"); //change filter button text
     		content=$("#content").children().detach(); //swap out content
     		$("#content").prepend($(filter)); //show filter content
     		filter = null; //clear out filter holder

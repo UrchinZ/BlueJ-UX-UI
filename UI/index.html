@@ -19,14 +19,10 @@
   	<nav class="navbar navbar-fixed-top navbar-expand-lg bg-danger">
   		<div class="container">
   			<div class="input-group md-5">
-  				<a class="navbar-brand text-white" href="#">RPEye</a>
-  				<div class="input-group-prepend">
-  					<button class=" btn btn-danger" id="search_btn"><img src="./icon/baseline-search-24px.svg" alt="search"></button>
-  				</div>
+  				<button class="btn btn-danger"><a id="logo" class="text-white" href="./index.html">RPEye</a></button>
+  				<button class=" btn btn-danger" id="search_btn"><img src="./icon/baseline-search-24px.svg" alt="search"></button>
 			  	<input id="query" type="text" class="form-control"  maxlength="1024" placeholder="Happy searching!(੭ु≧▽≦)੭ु" aria-label="Query" aria-describedby="basic-addon2">
-			  	<div class="input-group-append">
-			    	<button id="filter_btn" class="btn btn-danger" type="button">Filter</button>
-			  	</div>
+			    <button id="filter_btn" class="btn btn-danger" type="button">Settings</button>
 			</div>
   		</div>
   	</nav>
@@ -34,7 +30,7 @@
     <!--Content Section: landing page + user setting + result -->
     <div id="content" class="container">
       <!-- user setting -->
-      <div id="filter" class="row align-items-center">
+      <div id="filter">
         <div class="row option">
           <span>result per page: </span>
           <input id="res_del" class="btn btn-link btn-lg" type="button" value="-">
@@ -43,6 +39,28 @@
           <input id="res_min" class="btn" type="button" value="Min">
           <input id="res_max" class="btn" type="button" value="Max">
           <input id="res_default" class="btn" type="button" value="Default">
+        </div>
+        <div class="row option ranking">
+          <span>ranking team options:</span>
+          <span>
+            <input type="radio" id="green_x" name="ranking" value="green_x" checked>
+            <label for="green_x">green X</label>
+          </span>
+          <span>
+            <input type="radio" id="y_blue" name="ranking" value="y_blue">
+            <label for="y_blue">Y blue</label>
+          </span>
+        </div>
+        <div class="row option indexing">
+          <span>indexing team options:</span>
+          <span>
+            <input type="radio" id="green_eth" name="indexing" value="green_eth" checked>
+            <label for="green_eth">green Eth</label>
+          </span>
+          <span>
+            <input type="radio" id="green_z" name="indexing" value="green_z">
+            <label for="green_z">green Z</label>
+          </span>
         </div>
       </div>
 
