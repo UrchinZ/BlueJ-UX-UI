@@ -1,9 +1,14 @@
 let SnippetsGenerator = function() {};
 
 SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
+    console.log('Call to get snippet');
+    console.log('Receiving docID:' + docID);
+    console.log('Receiving keyWords list:' + keyWords);
+
     let checkKeyWords = function(keyWords, string) {
+        string = string.toLowerCase()
         for (let i = 0; i < keyWords.length; ++i)
-            if (string === keyWords[i])
+            if (string === keyWords[i].toLowerCase())
                 return true;
         return false;
     };
@@ -19,7 +24,7 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     }
 
     let snippet_number = 3;
-    let half_length = 1;
+    let half_length = 2;
 
     let doc = API.getDocument(docID);
     // let doc = {
@@ -32,7 +37,7 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     let body = doc.body;
     let result_counter = 0;
     let result = ['<p>'];
-    for (let i = 0; i < body.length && result.length < snippet_number; ++i) {
+    for (let i = 0; i < body.length && result_counter < snippet_number; ++i) {
         current_body = body[i].split(' ');
         let indices = [];
         for (let j = 0; j < current_body.length; ++j) {
@@ -40,6 +45,7 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
                 indices.push(j);
         }
         if (indices.length === 0) continue;
+        ++result_counter;
         let maxPivot = 0;
         let maxWeight = 0;
         for (let k = 0; k < indices.length; ++k) {
@@ -56,7 +62,7 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
             else
                 result.push(current_body[j]);
         }
-        result.push('...');
+        result.push('...\n');
     }
     result.push('</p>');
     let ret = {
@@ -70,4 +76,4 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
 };
 
 let Snippets = new SnippetsGenerator();
-Snippets.getSnippets(1, ['keyword5', 'keyword6']);
+Snippets.getSnippets(1, ['body', 'test']);

@@ -3,6 +3,9 @@ const min_result = 1;
 const default_result = 7;
 //detach filter content before page is ready to serve
 var filter = $("#filter").detach();
+var result_num = 7;
+var ranking = "green_x";
+var indexing = "green_eth";
 $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
@@ -13,7 +16,7 @@ $(document).ready(function(){
         console.log(search);
         if (search.length>1) //do nothing when query is empty
         {
-          console.log(API.searchRequest(search));
+          console.log(API.searchRequest(search,result_num,0));
         };
     })
     $('#query').keypress(function(e){
@@ -35,6 +38,13 @@ $(document).ready(function(){
     		filter = null; //clear out filter holder
     	//hide filter content, show back result page
   		} else {
+        console.log("save results:")
+        result_num = parseInt($("#res_value").val());
+        ranking = $("input[name='ranking']:checked").val();
+        indexing = $("input[name='indexing']:checked").val();
+        console.log(result_num);
+        console.log(ranking);
+        console.log(indexing);
   			/*might need to change this*/
   			$("#filter_btn").text("Filter");
     		filter = $( "#filter" ).detach();
