@@ -35,6 +35,10 @@ class APIManager{
     };
 
     searchRequest(queryInfo, maxresults=10, startResult=0) {
+        console.log("passing in query Info, maxresults, startresult")
+        console.log(queryInfo)
+        console.log(maxresults)
+        console.log(startResult)
         const Http = new XMLHttpRequest();
         const url=this.rankingAddress + queryInfo;
         Http.open("GET", url);
