@@ -92,8 +92,10 @@ let updateUI=function(results, start, end){
   var container=document.getElementById("info");
   container.innerHTML="";
   //console.log(results[start]);
+
+  //console.log()
     
-  for(i=start; i<end; i++){
+  for(i=start; i<end && i<results.length; i++){
     //var snip=new Snippet("header", "google.com", "body", "snippet");
     //add in code to use snippet generator
     
@@ -106,7 +108,7 @@ let updateUI=function(results, start, end){
     //create the link for the html
     var url=document.createElement("a");
     url.href=snip.url;
-    url.innerText=snip.header;
+    url.innerText=snip.title;
 
     //console.log(url);
 
