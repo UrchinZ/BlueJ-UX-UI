@@ -76,4 +76,4 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
 };
 
 let Snippets = new SnippetsGenerator();
-Snippets.getSnippets(1, ['body', 'test']);
+Snippets.getSnippets("fd34edfe67a924377d8a9dfe9a78a38a", ['body', 'test']);

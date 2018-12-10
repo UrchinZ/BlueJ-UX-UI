@@ -1,7 +1,9 @@
 class APIManager{
+
     constructor(rankingAddress = '', indexingAddress = '') {
         this.rankingAddress = rankingAddress;
         this.indexingAddress = indexingAddress;
+        this.finishedAPI=false;
     }
 
     setRankingAddress(address) {
@@ -13,14 +15,35 @@ class APIManager{
     };
 
     getDocument(docID) {
-        var pg = require('pg');
-        delete pg.native;
-        var connect = "postgress://querying:querying@"+this.indexingAddress+"/ip:5432/index";
-        var client = new pg.client(connect);
-        client.connect();
-        var query = client.query("SELECT * ");
-        console.log(client.query(query));
+        console.log(docID);
+        const Http = new XMLHttpRequest();
+        const url=this.indexingAddress + docID;
+        Http.open("GET", url);
+        this.finishedAPI=false;
+        this.callAPI(Http);
+        
+        var i=0;
+         while(!this.finishedAPI){
+            i++;
+            if(i==10000){
+                break;
+            }             
+         }
+         console.log("finished: "+this.finishedAPI);
+        // return x;
     };
+
+    callAPI(Http){
+        Http.send();
+        Http.onreadystatechange=(e)=>{
+            //console.log(Http.responseText);
+            let obj = JSON.parse(Http.responseText);
+            console.log(obj);
+            this.finishedAPI=true;
+            //updateUI(obj.pages, startResult, startResult+maxresults);
+
+        }
+    }
 
     searchRequest(queryInfo, maxresults=10, startResult=0) {
         console.log("passing in query Info, maxresults, startresult")
@@ -33,9 +56,9 @@ class APIManager{
         Http.send();
         Http.onreadystatechange=(e)=>{
             //console.log(Http.responseText);
-            let obj = JSON.parse(Http.responseText);
+            let obj =  JSON.parse(Http.responseText);
             console.log(obj);
-            updateUI(obj.pages, startResult, startResult+maxresults);
+            updateUI(obj.docs, startResult, startResult+maxresults);
 
         }
     };
@@ -43,7 +66,7 @@ class APIManager{
     sendQueryFeedback(docID) {
     };
 }
-let API = new APIManager("http://green-x.cs.rpi.edu:8080/search?query=", "green-z.cs.rpi.edu");
+let API = new APIManager("http://green-x.cs.rpi.edu:8080/search?query=", "http://green-eth.cs.rpi.edu/querying?id=");
 // Get search result for a given query as parameter
 //API.searchRequest('');
 // Get a document object (as described in deliverable 1)

@@ -110,7 +110,7 @@ let updateUI=function(results, start, end){
     //add in code to use snippet generator
     
     var gen=new SnippetsGenerator();
-    var snip=gen.getSnippets(results[i].document_id, results[i].keywords);
+    var snip=gen.getSnippets(results[i].docid, results[i].keywords);
 
     var div=document.createElement("div");
     div.class="resultDiv";
