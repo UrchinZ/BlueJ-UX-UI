@@ -1,17 +1,2 @@
 
-UI/javascript/node_modules/.bin/semver
-UI/javascript/node_modules/.bin/semver.cmd
-UI/javascript/node_modules/buffer-writer/.travis.yml
-UI/javascript/node_modules/buffer-writer/index.js
-UI/javascript/node_modules/buffer-writer/LICENSE
-UI/javascript/node_modules/buffer-writer/package.json
-UI/javascript/node_modules/buffer-writer/README.md
-UI/javascript/node_modules/buffer-writer/test/mocha.opts
-UI/javascript/node_modules/buffer-writer/test/writer-tests.js
-UI/javascript/node_modules/core-util-is/float.patch
-UI/javascript/node_modules/core-util-is/lib/util.js
-UI/javascript/node_modules/core-util-is/LICENSE
-UI/javascript/node_modules/core-util-is/package.json
-UI/javascript/node_modules/core-util-is/README.md
-UI/javascript/node_modules/core-util-is/test.js
-UI/javascript/node_modules/inherits/inherits.js
+
