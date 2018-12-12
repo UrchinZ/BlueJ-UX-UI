@@ -4,5 +4,5 @@ Index HTML
 Notes:
 add few comments on the navigator
 
-LOC:
-Comments
+LOC: 91
+Comments: 22
