@@ -1,24 +1,25 @@
+/* always fix footer at the bottom */
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 30px;
-  /*background-color: #f5f5f5;*/
 }
 
+/* Spread out all the buttons */
 #info,.option {
   padding: 30px 10px 10px 20px;
 }
-
 .btn{
   margin:10px;
 }
 
+/*Align query bar*/
 #query{
   margin-top: 10px;
 }
 
+/*Space out options*/
 .option>span {
   margin-left: 10px;
 }
