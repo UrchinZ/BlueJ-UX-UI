@@ -1,0 +1,9 @@
+12/12/2018
+
+
+Notes:
+1. add more spacing for readability
+2. Bug: after clicking setting, when user input query and press enter/press search. Page does not update. 
+
+Future work
+Refactor the filter btn

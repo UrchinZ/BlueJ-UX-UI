@@ -1,0 +1,6 @@
+Style code review
+12/12/2018
+
+Notes:
+1. Remove junk code
+2. Add some comments on what each section is trying to do
