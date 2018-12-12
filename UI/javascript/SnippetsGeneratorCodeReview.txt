@@ -1,0 +1,8 @@
+12-12-2018
+1. delete dummy result
+2. delete useless lines (tags)
+3. split long lines to two lines
+4. move internal functions to outside of the class
+
+Lines of code: 66
+Lines of comments: 31

@@ -1,6 +1,29 @@
 // The SnippetGenerator class can initialize a instance of snippet generator
 let SnippetsGenerator = function() {};
 
+// This function to check if the string is one of the key words
+// Return true if the string is one of the key words otherwise false
+// This function is case incensitive
+let checkKeyWords = function(keyWords, string) {
+    string = string.toLowerCase()
+    for (let i = 0; i < keyWords.length; ++i)
+        if (string === keyWords[i].toLowerCase())
+            return true;
+    return false;
+};
+
+// This function calculate the weight of an index given the pivot index
+// and the indices list that contain the key words
+let indexWeight = function(indices, pivotIndex, snippetHalfLength) {
+    let pivot = indices[pivotIndex];
+    let counter = 0;
+    for (let i = 0; i < indices.length; ++i) {
+        if (indices[i] > pivot - snippetHalfLength && indices[i] < pivot + snippetHalfLength)
+            ++counter;
+    }
+    return counter;
+};
+
 // This function return the snippet given doc ID and key words input by user
 // This function rely on the API manager so include API manager class first in html file
 // This function will get document throught API manager class
@@ -14,29 +37,6 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     console.log('Receiving docID:' + docID);
     console.log('Receiving keyWords list:' + keyWords);
 
-    // Internal function to check if the string is one of the key words
-    // Return true if the string is one of the key words otherwise false
-    // This function is case incensitive
-    let checkKeyWords = function(keyWords, string) {
-        string = string.toLowerCase()
-        for (let i = 0; i < keyWords.length; ++i)
-            if (string === keyWords[i].toLowerCase())
-                return true;
-        return false;
-    };
-
-    // This function calculate the weight of an index given the pivot index
-    // and the indices list that contain the key words
-    let indexWeight = function(indices, pivotIndex, snippetHalfLength) {
-        let pivot = indices[pivotIndex];
-        let counter = 0;
-        for (let i = 0; i < indices.length; ++i) {
-            if (indices[i] > pivot - snippetHalfLength && indices[i] < pivot + snippetHalfLength)
-                ++counter;
-        }
-        return counter;
-    }
-
     // Some algorithm settings
     // Snippet number indicate the number of snippets that we want to find
     let snippet_number = 3;
@@ -45,14 +45,6 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
 
     // First get the document through API manager
     let doc = API.getDocument(docID);
-    // Dummy result
-    // let doc = {
-    //         docID: 1234,
-    //         url: 'test.com',
-    //         title: 'TEST',
-    //         headings: ['About', 'Academic'],
-    //         body: ['keyword1 keyword2 keyword3 keyword4 keyword5 keyword6 keyword7 keyword8 keyword9 keyword10']
-    // };
 
     // Get the body of doc for feature use
     let body = doc.body;
@@ -94,17 +86,15 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
 
         // Record the result
         result.push('...');
-        for (let j = Math.max(0, maxPivot - half_length); j < Math.min(current_body.length, maxPivot + half_length + 1); ++j) {
+        for (let j = Math.max(0, maxPivot - half_length);
+            j < Math.min(current_body.length, maxPivot + half_length + 1); ++j) {
             if (checkKeyWords(keyWords, current_body[j]))
                 result.push(current_body[j]);
-                // result.push('<b>' + current_body[j] + '</b>');
             else
                 result.push(current_body[j]);
         }
         result.push('...\n');
     }
-    // Close the paragraph tag
-    // result.push('</p>');
 
     // Construct the return value by specification
     let ret = {
