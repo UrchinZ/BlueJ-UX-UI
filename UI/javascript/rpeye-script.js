@@ -1,11 +1,13 @@
 const max_result = 20;
 const min_result = 1;
 const default_result = 7;
-//detach filter content before page is ready to serve
-var filter = $("#filter").detach();
 var result_num = 7;
 var ranking = "green_x";
 var indexing = "green_eth";
+
+//detach filter content before page is ready to serve
+var filter = $("#filter").detach();
+
 $(document).ready(function(){
 	//input cursor start with search bar
 	$("input").focus();
@@ -19,6 +21,7 @@ $(document).ready(function(){
           console.log(API.searchRequest(search,result_num,0));
         };
     })
+
     $('#query').keypress(function(e){
         if(e.which == 13){//Enter key pressed
         	console.log("enter pressed");
@@ -37,7 +40,8 @@ $(document).ready(function(){
     		$("#content").prepend($(filter)); //show filter content
     		filter = null; //clear out filter holder
     	//hide filter content, show back result page
-  		} else {
+  		} 
+      else {
         console.log("save results:")
         result_num = parseInt($("#res_value").val());
         ranking = $("input[name='ranking']:checked").val();
@@ -52,6 +56,7 @@ $(document).ready(function(){
     		$("#content").prepend($(content));
   		}
     });
+
     console.log("ready");
 
 	/*In filter, change number of result displayed in the page*/
@@ -77,16 +82,19 @@ $(document).ready(function(){
    		 	console.log(value);
    		 }
 	});
+
 	//change result per page to max
 	$(document).on( "click","#res_max",function() {
    		 console.log("max clicked");
    		 $("#res_value").val(max_result);
 	});
+
 	//change result per page to 7
 	$(document).on( "click","#res_default",function() {
    		 console.log("min clicked");
    		 $("#res_value").val(default_result);
 	});
+
 	//chage result per page to min
 	$(document).on( "click","#res_min",function() {
    		 console.log("min clicked");
