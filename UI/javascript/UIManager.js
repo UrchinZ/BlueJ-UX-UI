@@ -12,6 +12,7 @@ class UIManager{
 
     };
 
+    //called when the results are returned from a query to update the UI with the results
     updateUI(results, start, end){
           console.log(results);
 
@@ -58,4 +59,4 @@ class UIManager{
     }
 }
 
-var UI=new UIManager();
+var UI = new UIManager();

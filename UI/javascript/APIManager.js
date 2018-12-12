@@ -40,7 +40,7 @@ class APIManager{
         let obj =  JSON.parse(Http.responseText);
         console.log(obj);
         //take results and update UI
-        UI.updateUI(obj.pages, startResult, startResult+maxresults);
+        UI.updateUI(obj.docs, startResult, startResult+maxresults);
     };
 
     sendQueryFeedback(docID) {
