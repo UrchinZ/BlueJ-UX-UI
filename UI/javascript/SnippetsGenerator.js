@@ -59,7 +59,7 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
     let result_counter = 0;
 
     // Initialize the result array
-    let result = ['<p>'];
+    let result = [];
 
     // One snippet for each body
     for (let i = 0; i < body.length && result_counter < snippet_number; ++i) {
@@ -96,14 +96,15 @@ SnippetsGenerator.prototype.getSnippets = function(docID, keyWords) {
         result.push('...');
         for (let j = Math.max(0, maxPivot - half_length); j < Math.min(current_body.length, maxPivot + half_length + 1); ++j) {
             if (checkKeyWords(keyWords, current_body[j]))
-                result.push('<b>' + current_body[j] + '</b>');
+                result.push(current_body[j]);
+                // result.push('<b>' + current_body[j] + '</b>');
             else
                 result.push(current_body[j]);
         }
         result.push('...\n');
     }
     // Close the paragraph tag
-    result.push('</p>');
+    // result.push('</p>');
 
     // Construct the return value by specification
     let ret = {
