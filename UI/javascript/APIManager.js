@@ -15,11 +15,13 @@ class APIManager{
         this.indexingAddress = address;
     };
 
+    //makes call to document API
     getDocument(docID) {
         console.log(docID);
         //docID="fd34edfe67a924377d8a9dfe9a78a38a";       //This value can be hard coded so that we may show entire functionality of UIcomponent
         const Http = new XMLHttpRequest();
         const url=this.indexingAddress + docID;
+
         //make API call synchronus to allow proper functionality
         Http.open("GET", url, false);
         Http.send();
@@ -27,6 +29,8 @@ class APIManager{
         console.log(obj);
         return obj.data;
     };
+
+    //makes call to ranking API
     searchRequest(queryInfo, maxresults=10, startResult=0) {
         console.log("passing in query Info, maxresults, startresult")
         console.log(queryInfo)
@@ -41,9 +45,6 @@ class APIManager{
         console.log(obj);
         //take results and update UI
         UI.updateUI(obj.docs, startResult, startResult+maxresults);
-    };
-
-    sendQueryFeedback(docID) {
     };
 }
 //create global variables

@@ -1,0 +1,14 @@
+UIMAnager code review
+12/12/2018
+
+Notes
+-make sure to comment all functions and classes
+-fix spacing
+
+Found Bugs: 0
+LOC: 38
+Lines of Comments: 11
+
+
+Potential Next Steps (in theory if continuing project)
+-create css to make results look better

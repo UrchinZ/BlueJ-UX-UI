@@ -9,17 +9,12 @@ class json{
 //class that handles ui updates from results being returned
 class UIManager{
     construct(){
-
     };
 
     //called when the results are returned from a query to update the UI with the results
     updateUI(results, start, end){
           console.log(results);
-
-          
           var gen=new SnippetsGenerator();
-          var i;
-
           //take the info node, remove everything in it, and copy it for future use
           var resultTemplate=document.getElementById("info");
           resultTemplate.innerHTML="";
@@ -32,11 +27,11 @@ class UIManager{
           } 
           console.log(results); 
 
+          var i;
           for(i=start; i<end && i<results.length; i++){           
             
             console.log(results[i]);
             var snip=gen.getSnippets(results[i].docid, results[i].keywords);
-
             var div=resultTemplate.cloneNode(false);
             div.class="resultDiv";
 
@@ -45,12 +40,11 @@ class UIManager{
             url.href="https://"+snip.url;
             url.innerText=snip.title;
 
-            //console.log(url);
-
             //append everything to the div element
             div.appendChild(url);
             div.appendChild(document.createElement("br"));  //new line element
             div.appendChild(document.createTextNode(snip.snippet)); //add in the text snippet
+
             //append the div to the container element
             container.appendChild(div);
 
